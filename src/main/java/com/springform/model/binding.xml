@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<xml-bindings
+    xmlns="http://www.eclipse.org/eclipselink/xsds/persistence/oxm"
+    package-name="com.springform.model" xml-mapping-metadata-complete="true" xml-accessor-order="ALPHABETICAL" xml-name-transformer='com.springform.util.NameMangler'>
+    <!-- xml-name-transformer='com.springform.util.NameMangler' -->
+    <!-- <xml-schema
+        namespace="http://www.example.com/user"
+        element-form-default="QUALIFIED"/> -->
+    <java-types>
+        <java-type name="User"  xml-accessor-type="NONE">
+            <xml-root-element/>
+            <java-attributes>
+                <xml-element java-attribute="username" name="Username"/>
+                <xml-element java-attribute="password" name="Password"/>
+                <xml-element java-attribute="email" name="Email"/>
+                 <xml-element java-attribute="birthDate" name="BirthDate"/>
+                  <xml-element java-attribute="profession" name="Profession"/>
+                  <xml-element java-attribute="addressHistory" name="AddressHistory" type="com.springform.model.AddressHistory"
+                   />
+            </java-attributes>
+        </java-type>
+        <java-type name="AddressHistory">
+            <java-attributes>
+            <xml-element java-attribute="address" name="Address"  type="com.springform.model.Address" container-type="java.util.List"/>
+                <!-- <xml-attribute java-attribute="type"/>
+                <xml-value java-attribute="number"/> -->
+            </java-attributes>
+            
+            </java-type>
+         <java-type name="Address">
+            <xml-root-element/>
+            <java-attributes>
+                <xml-element java-attribute="postcode" name="Postcode"/>
+                <xml-element java-attribute="address1" name="Address1"/>
+                <xml-element java-attribute="address2" name="Address2"/>
+                 <xml-element java-attribute="year" name="Year"/>
+                  <xml-element java-attribute="month" name="Month"/>
+            </java-attributes>
+        </java-type>
+    </java-types>
+</xml-bindings>
